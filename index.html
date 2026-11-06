@@ -1497,16 +1497,16 @@ lb.onclick = hideLb;
 lv.onclick = function (e) { e.stopPropagation(); };
 addEventListener("keydown", function (e) { if (e.key == "Escape")
     hideLb(); });
-/* contact */
+
 Object.keys(LINKS).forEach(function (k) { var a = document.createElement("a"); a.href = LINKS[k]; a.target = "_blank"; a.rel = "noopener"; a.innerHTML = "<b>" + k + "</b><span>Buka profil ↗</span>"; $("#soc").appendChild(a); });
-/* reveal */
+
 var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) {
     e.target.classList.add("in");
     io.unobserve(e.target);
 } }); }, { threshold: .12 });
 document.querySelectorAll(".rv").forEach(function (e) { io.observe(e); });
-/* builder animation: 10 kursor */
-var hero = $("#top"), nm = $("#nm"), rl = $("#rl"), ld = $("#ld"), bt = $("#bt"), win = $("#win"), code = $("#code"), h1 = nm.querySelector("h1"), slots = [].slice.call(document.querySelectorAll(".sl")), run = 0, skip = 0, CODE = 'const samuel = {\n  kuliah: "Teknik Informatika",\n  peran: ["Programmer", "Graphic Designer"],\n  fokus: "web dan visual",\n};', CN = ["Samuel", "Nama", "Peran", "Teks", "Tombol", "Bahasa", "Web", "Desain", "Visual", "Kode"], CC = ["#d0ad76", "#7fb2ff", "#ff8a7a", "#8bd6a0", "#c79bff", "#ffd166", "#5ed3d6", "#ff9fd0", "#a5b4fc", "#f4a261"], PK = [[.02, .03], [.5, 0], [.96, .05], [.06, .95], [.9, .92], [.28, .55], [.72, .42], [.04, .5], [.55, .97], [.97, .55]];
+
+var hero = $("#top"), nm = $("#nm"), rl = $("#rl"), ld = $("#ld"), bt = $("#bt"), win = $("#win"), code = $("#code"), h1 = nm.querySelector("h1"), slots = [].slice.call(document.querySelectorAll(".sl")), run = 0, skip = 0, CODE = 'const samuel = {\n  kuliah: "Teknik Informatika",\n  peran: ["Programmer", "Graphic Designer"],\n  fokus: "web dan visual",\n};', CN = ["Samuel", "Nama", "Peran", "Teks", "Tombol", "Bahasa", "Web", "Desain", "Visual", "Kode"], CC = ["#d0ad76", "#7fb2ff", "#ff8a7a", "#8bd6a0", "#c79bff", "#ffd166", "#5ed3d6", "#ff9fd0", "#a5b4fc", "#f4a261"], PK = [[.02, .03], [.5, 0], [.96, .05], [.06, .95], [.9, .92], [.28, .55], [.72, .42], [.04, .5], [.55, .96], [.97, .55]];
 [].forEach.call(h1.querySelectorAll("span"), function (s) { var x = s.textContent; s.innerHTML = ""; x.split("").forEach(function (c) { var i = document.createElement("i"); i.textContent = c; s.appendChild(i); }); });
 var L = [].slice.call(h1.querySelectorAll("i"));
 var cur = CN.map(function (n, i) { var e = document.createElement("div"); e.className = "bc"; e.setAttribute("aria-hidden", "true"); e.style.setProperty("--c", CC[i]); e.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 2l17 8-7 2.500L10 20z" fill="currentColor" stroke="#101216" stroke-width="1.500" stroke-linejoin="round"/></svg><span>' + n + '</span>'; hero.appendChild(e); return e; });
